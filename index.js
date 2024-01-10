@@ -1,5 +1,17 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // Iterate through each element in the array
+  for (let i = 0; i < array.length; i++) {
+    let complement = target - array[i];
+
+    // Check if the complement exists in the remaining part of the array
+    if (array.slice(i + 1).includes(complement)) {
+      console.log(array.slice(i + 1))
+      return true;
+    }
+  }
+
+  // No pair found
+  return false;
 }
 
 /* 
@@ -8,10 +20,33 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  function hasTargetSum(array, target):
+    for i from 0 to length of array - 1:
+        complement = target - array[i]
+        
+        // Check if complement exists in the remaining part of the array
+        if array[i+1:] includes complement:
+            return true
+    
+    // No pair found
+    return false
+
 */
 
 /*
   Add written explanation of your solution here
+  Iterate Through Array Elements:
+
+For each element at index i in the array, do the following:
+Calculate the complement by subtracting the current array element (array[i]) from the target (target).
+Check Complement Existence:
+
+Check if the calculated complement exists in the remaining part of the array (from index i + 1 onwards).
+If the complement is found in the subarray, it means there is a pair of elements that adds up to the target.
+Return true.
+No Pair Found:
+
+If the loop completes without finding a pair, return false.
 */
 
 // You can run `node index.js` to view these console logs
